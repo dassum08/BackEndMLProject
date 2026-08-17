@@ -37,7 +37,7 @@ func predictHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	// Call Python ML service
 	resp, err := http.Post(
-					"http://localhost:8000/predict",
+					"http://fastapi:8000/predict",
 					"application/json",
 					bytes.NewBuffer(jsonData),
 					)

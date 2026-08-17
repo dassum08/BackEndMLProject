@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.routes import router
-
+import psycopg2
 
 app = FastAPI(
     title="ML Prediction API",

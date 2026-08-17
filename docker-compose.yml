@@ -12,11 +12,16 @@ services:
       - "5432:5432"
 
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
 
-
-  fastapi:
-    build: ./fastapi
+    healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+        interval: 5s
+        timeout: 5s
+        retries: 10
+    
+  fastapi_service:
+    build: ./fastapi_service
     container_name: fastapi
 
     environment:
@@ -29,8 +34,8 @@ services:
       - postgres
 
 
-  go:
-    build: ./go
+  go_service:
+    build: ./go_service
     container_name: go
 
     environment:
@@ -42,7 +47,7 @@ services:
 
     depends_on:
       - postgres
-      - fastapi
+      - fastapi_service
 
 
 volumes:
