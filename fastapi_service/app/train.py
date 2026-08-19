@@ -1,12 +1,19 @@
 from sklearn.datasets import load_iris
 from sklearn.ensemble import RandomForestClassifier
 import joblib
+import pandas as pd
 
 # Load dataset
-iris = load_iris()
+#iris = load_iris()
 
-X = iris.data
-y = iris.target
+#X = iris.data
+#y = iris.target
+
+df = pd.read_csv('fire_data.csv')
+
+# 2. Split into X (all columns except the last) and y (only the last column)
+X = df.iloc[:, :-3]
+y = df.iloc[:, -1]
 
 # Train model
 model = RandomForestClassifier(

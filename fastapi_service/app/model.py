@@ -12,12 +12,12 @@ def predict(features):
     
  
 
-class IrisPred(Base):
-    __tablename__ = "iris_pred"
+class FireCompPred(Base):
+    __tablename__ = "fire_compliance"
     id = Column(Integer, primary_key=True, index=True)
-    sepal_length = Column(Float, index=True, nullable=False)
-    sepal_width = Column(Float, index=True, nullable=False)
-    petal_length = Column(Float, index=True, nullable=False)
-    petal_width = Column(Float, index=True, nullable=False)
+    smoke_detector = Column(Integer, index=True, nullable=False)
+    new_batteries = Column(Integer, index=True, nullable=False)
+    abc_extinguisher = Column(Integer, index=True, nullable=False)
+    clear_exit_routes = Column(Integer, index=True, nullable=False)
     prediction = Column(Integer, index=True, nullable=False)
     probabilities = Column(Float, index=True, nullable=False)

@@ -5,7 +5,6 @@ from sqlalchemy.ext.declarative import declarative_base
 import os
 
 DATABASE_URL = os.getenv("DATABASE_URL")
-#DATABASE_URL =  "postgresql://postgres:root@localhost:5432/MLDB"
 
 Base = declarative_base()
 # Create engine with connection pooling parameters optimized for PostgreSQL
